@@ -8,7 +8,7 @@ st.title('Transpiler Dart ⬌ Kotlin')
 col1, col2 = st.columns(2)
 
 with col1:
-    input_code = st.text_area("Scrivi qui il codice da convertire", height=300)
+    input_code = st.text_area("Write the code you want to convert here", height=300)
     
     source_options = ['dart', 'kotlin']
     target_options = ['dart', 'kotlin']
@@ -19,19 +19,19 @@ with col1:
     sub_col_1, sub_col_2 = st.columns(2)
 
     with sub_col_1:
-        source_lang = st.selectbox('Seleziona il linguaggio di partenza', source_options)
+        source_lang = st.selectbox('Select the source language', source_options)
     
     with sub_col_2:
-        target_lang = st.selectbox('Seleziona il linguaggio di destinazione', target_options)
+        target_lang = st.selectbox('Select the target language', target_options)
 
-    if st.button('Converti!'):
+    if st.button('Start Conversion'):
         (output_code, errors) = controller.transpile(input_code, source_lang, target_lang)
         if (errors == None):
             with col2:
                 st.text_area('Output', height=300, value=output_code)
         else:
             with col2:
-                st.text_area("Ops, qualcosa è andato storto!", height=300, value=errors)
+                st.text_area("Oops, something went wrong!", height=300, value=errors)
 
 
 
