@@ -3,8 +3,8 @@ import requests
 class TranspilerController:
     def __init__(self):
         self.lang_frontend_endpoints = {
-            "dart": "http://localhost:8080",
-            "kotlin": "http://localhost:8081"
+            "dart": "http://dart2ast:8080",
+            "kotlin": "http://kotlin2ast:8081"
         }
     
     def transpile(self, input_code, source_lang, target_lang):
